@@ -1,0 +1,698 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "newBusinessNumber": {
+      "type": "string",
+      "minLength": 1
+    },
+    "applicationNumber": {
+      "type": "string"
+    },
+    "product": {
+      "type": "object",
+      "properties": {
+        "number": {
+          "type": "string"
+        },
+        "typeCode": {
+          "type": "string"
+        },
+        "nameCode": {
+          "type": "string"
+        }
+      }
+    },
+    "productVersion": {
+      "type": "string"      
+    },
+    "productVersionDate": {
+      "type": "string"
+    },
+    "adviceTypeCode": {
+      "type": "string",
+      "enum": [
+        "100",
+        "200"
+      ]
+    },
+    "contractStructureTypeCode": {
+      "type": "string",
+      "enum": [
+        "100",
+        "200"
+      ]
+    },
+    "creatorNumber": {
+      "type": "string"
+    },
+    "creatorTypeCode": {
+      "type": "string",
+      "enum": [
+        "AGENT"
+      ]
+    },
+    "owningAgentCode": {
+      "type": "string",
+      "minLength": 1
+    },
+    "contracts": {
+      "type": "array",
+      "items": {
+        "properties": {
+          "number": {
+            "type": "string",
+            "minLength": 1
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "pairedContractNumber": {
+            "type": "string"
+          },
+          "linkedContractNumber": {
+            "type": "string"
+          },
+          "typeCode": {
+            "type": "string",
+            "minLength": 1,
+            "enum": [
+              "101",
+              "102"
+            ]
+          },
+          "termTypeCode": {
+            "type": "string",            
+            "enum": [
+              "100",
+              "200"
+            ]
+          },
+          "packageTypeCode": {
+            "type": "string",
+            "enum": [
+              "100",
+              "200",
+              "300",
+              "400",
+              "500",
+              "600",
+              "700"
+            ]
+          },
+          "termPeriod": {
+            "type": "object",
+            "properties": {
+              "units": {
+                "type": "string"
+              },
+              "measurementCode": {
+                "type": "string",
+                "enum": [
+                  "YEAR"
+                ]
+              }
+            }
+          },
+          "paymentTermTypeCode": {
+            "type": "string",            
+            "enum": [
+              "100",
+              "200"
+            ]
+          },
+          "premiumTypeCode": {
+            "type": "string",
+            "minLength": 1,
+            "enum": [
+              "200",
+              "100"
+            ]
+          },
+          "paymentPeriod": {
+            "type": "object",
+            "properties": {
+              "units": {
+                "type": "string"
+              },
+              "measurementCode": {
+                "type": "string",
+                "enum": [
+                  "YEAR"
+                ]
+              }
+            }
+          },
+          "paymentFrequencyCode": {
+            "type": "string",
+            "minLength": 1,
+            "enum": [
+              "400",
+              "300",
+              "500",
+              "200",
+              "600",
+              "100",
+              "700"
+            ]
+          },
+          "paymentSourceTypeCode": {
+            "type": "string",
+            "minLength": 1,
+            "enum": [
+              "100",
+              "200",
+              "300"
+            ]
+          },
+          "commissionTypeCode": {
+            "type": "string",
+            "minLength": 1,
+            "enum": [
+              "101",
+              "102",
+              "103",
+              "200"
+            ]
+          },
+          "doesCPIApply": {
+            "type": "boolean",
+            "minLength": 1
+          },
+          "isTransferTermsApplied": {
+            "type": "boolean"
+          },
+          "isPrivacySet": {
+            "type": "boolean"
+          },
+          "commissionProjections": {
+            "type": "array",
+            "items": {
+              "properties": {
+                "yearCount": {
+                  "type": "number",
+                  "minLength": 1
+                },
+                "commissionAmount": {
+                  "type": "object",
+                  "properties": {
+                    "amount": {
+                      "type": "number",
+                      "minLength": 1
+                    },
+                    "currencyCode": {
+                      "type": "string",
+                      "minLength": 1,
+                      "enum": [
+                        "AUD"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "amount",
+                    "currencyCode"
+                  ]
+                }
+              },
+              "required": [
+                "yearCount"
+              ]
+            }
+          },
+          "coverages": {
+            "type": "array",
+            "items": {
+              "properties": {
+                "number": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "typeCode": {
+                  "type": "string",
+                  "minLength": 1,
+                  "enum": [
+                    "101",
+                    "102",
+                    "103",
+                    "104"
+                  ]
+                },
+                "coverageAmount": {
+                  "type": "object",
+                  "properties": {
+                    "amount": {
+                      "type": "number",
+                      "minLength": 1
+                    },
+                    "currencyCode": {
+                      "type": "string",
+                      "enum": [
+                        "AUD"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "amount"
+                  ]
+                },
+                "insureds": {
+                  "type": "array",
+                  "items": {
+                    "properties": {
+                      "partyReferenceNumber": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "annualIncomeAmount": {
+                        "type": "object",
+                        "properties": {
+                          "amount": {
+                            "type": "number",
+                            "minLength": 1
+                          },
+                          "currencyCode": {
+                            "type": "string",
+                            "enum": [
+                              "AUD"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "amount"
+                        ]
+                      },
+                      "occupationClassCode": {
+                        "type": "string"
+                      },
+                      "occupationCode": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "doesSmoke": {
+                        "type": "boolean",
+                        "minLength": 1
+                      },
+                      "employments": {
+                        "type": "array",
+                        "items": {
+                          "properties": {
+                            "typeCode": {
+                              "type": "string",
+                              "minLength": 1,
+                              "enum": [
+                                "101",
+                                "102",
+                                "103",
+                                "104",
+                                "105",
+                                "106",
+                                "107",
+                                "200"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "typeCode"
+                          ]
+                        }
+                      }
+                    },
+                    "required": [
+                      "partyReferenceNumber",
+                      "occupationCode",
+                      "doesSmoke"
+                    ]
+                  }
+                },
+                "benefitTypeCode": {
+                  "type": "string",
+                  "enum": [
+                    "100",
+                    "200"
+                  ]
+                },
+                "benefitPeriod": {
+                  "type": "object",
+                  "properties": {
+                    "units": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "measurementCode": {
+                      "type": "string",
+                      "minLength": 1,
+                      "enum": [
+                        "DAY",
+						"MONTH",
+						"YEAR",
+						"INCH",
+						"FOOT",
+						"KILO",
+						"POUND"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "units",
+                    "measurementCode"
+                  ]
+                },
+                "excessPeriod": {
+                  "type": "object",
+                  "properties": {
+                    "units": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "measurementCode": {
+                      "type": "string",
+                      "minLength": 1,
+                      "enum": [
+                        "DAY",
+						"MONTH",
+						"YEAR",
+						"INCH",
+						"FOOT",
+						"KILO",
+						"POUND"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "units",
+                    "measurementCode"
+                  ]
+                },
+                "incomeReplacementAmount": {
+                  "type": "object",
+                  "properties": {
+                    "amount": {
+                      "type": "number"
+                    },
+                    "currencyCode": {
+                      "type": "string",
+                      "enum": [
+                        "AUD"
+                      ]
+                    }
+                  }
+                },
+                "annualIncomeAmount": {
+                  "type": "object",
+                  "properties": {
+                    "amount": {
+                      "type": "number"
+                    },
+                    "currencyCode": {
+                      "type": "string",
+                      "enum": [
+                        "AUD"
+                      ]
+                    }
+                  }
+                }
+              },
+              "required": [
+                "number",
+                "typeCode"
+              ]
+            }
+          },
+          "riders": {
+            "type": "array",
+            "items": {
+              "properties": {
+                "typeCode": {
+                  "type": "string",
+                  "minLength": 1,
+                  "enum": [
+                    "201",
+                    "202",
+                    "203",
+                    "204",
+                    "205",
+                    "206",
+                    "207",
+                    "208",
+                    "209",
+                    "210",
+                    "211",
+                    "212",
+                    "213",
+                    "214"
+                  ]
+                }
+              },
+              "required": [
+                "typeCode"
+              ]
+            }
+          }
+        },
+        "required": [
+          "number",
+          "name",
+          "typeCode",                    
+          "premiumTypeCode",
+          "paymentFrequencyCode",
+          "paymentSourceTypeCode",
+          "commissionTypeCode",
+          "doesCPIApply"
+        ]
+      }
+    },
+    "parties": {
+      "type": "array",
+      "items": {
+        "properties": {
+          "referenceNumber": {
+            "type": "string",
+            "minLength": 1
+          },
+          "number": {
+            "type": "string"
+          },
+          "typeCode": {
+            "type": "string",
+            "enum": [
+              "501",
+              "502",
+              "503"
+            ]
+          },
+          "name": {
+            "type": "object",
+            "properties": {
+              "title": {
+                "type": "string"
+
+              },
+              "suffix": {
+                "type": "string"
+              },
+              "firstName": {
+                "type": "string",
+                "minLength": 1
+              },
+              "middleName": {
+                "type": "string"
+              },
+              "lastName": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              
+              "firstName",
+              "lastName"
+            ]
+          },
+          "addresses": {
+            "type": "array",
+            "items": {
+              "properties": {
+                "number": {
+                  "type": "string"
+                },
+                "typeCode": {
+                  "type": "string"
+                },
+                "addressLine1": {
+                  "type": "string"
+                },
+                "addressLine2": {
+                  "type": "string"
+                },
+                "city": {
+                  "type": "string"
+                },
+                "postalCode": {
+                  "type": "string"
+                },
+                "stateCode": {
+                  "type": "string"
+                },
+                "countryCode": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "phoneNumbers": {
+            "type": "array",
+            "items": {
+              "properties": {
+                "countryCode": {
+                  "type": "string"
+                },
+                "number": {
+                  "type": "string"
+                },
+                "typeCode": {
+                  "type": "string"
+                },
+                "useCode": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "emails": {
+            "type": "array",
+            "items": {
+              "properties": {
+                "address": {
+                  "type": "string"
+                },
+                "typeCode": {
+                  "type": "string"
+                },
+                "isPrimary": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "birthDate": {
+            "type": "string",
+            "minLength": 1
+          },
+          "genderCode": {
+            "type": "string",
+            "minLength": 1,
+            "enum": [
+              "101",
+              "102"
+            ]
+          },
+          "preferredName": {
+            "type": "string"
+          },
+          "otherLastName": {
+            "type": "string"
+          },
+          "isResident": {
+            "type": "boolean"
+          },
+          "prefferedContactMethodCode": {
+            "type": "string"
+          },
+          "height": {
+            "type": "object",
+            "properties": {
+              "measurementCode": {
+                "type": "string"
+              },
+              "units": {
+                "type": "string"
+              }
+            }
+          },
+          "weight": {
+            "type": "object",
+            "properties": {
+              "measurementCode": {
+                "type": "string"
+              },
+              "units": {
+                "type": "string"
+              }
+            }
+          },
+          "loadings": {
+            "type": "array",
+            "items": {
+              "properties": {
+                "typeCode": {
+                  "type": "string",
+                  "minLength": 1,
+                  "enum": [
+                    "100",
+                    "200"
+                  ]
+                },
+                "coverageTypeCode": {
+                  "type": "string",
+                  "minLength": 1,
+                  "enum": [
+                    "101",
+                    "102",
+                    "103",
+                    "104"
+                  ]
+                },
+                "valueTypeCode": {
+                  "type": "string",
+                  "minLength": 1,
+                  "enum": [
+                    "100",
+                    "200"
+                  ]
+                },
+                "valuePercent": {
+                  "type": "string"
+                },
+                "categoryCode": {
+                  "type": "string"
+                },
+                "assessmentSourceCode": {
+                  "type": "string",
+                  "minLength": 1,
+                  "enum": [
+                    "100",
+                    "200",
+                    "300"
+                  ]
+                }
+              },
+              "required": [
+                "typeCode",
+                "coverageTypeCode",
+                "assessmentSourceCode"
+              ]
+            }
+          }
+        },
+        "required": [
+          "referenceNumber",
+          "birthDate",
+          "genderCode"
+        ]
+      }
+    },
+    "contractIllustrations": {
+      "type": "array",
+      "items": {
+        "properties": {
+          
+        }
+      }
+    }
+  },
+  "required": [
+    "newBusinessNumber",    
+    "owningAgentCode"
+  ]
+}
