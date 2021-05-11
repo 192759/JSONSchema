@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id":"https://raw.githubusercontent.com/192759/JSONSchema/main/draft-07/document-generate-illustration-post.json",
+  "id":"https://raw.githubusercontent.com/192759/JSONSchema/main/draft-04/document-generate-illustration-post.json",
   "type": "object", 
   "properties": {
     "typeCode": {
